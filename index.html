@@ -1,16 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Manickaselvi | Portfolio</title>
-  <style>
-    body { font-family: Arial; text-align: center; margin-top: 50px; }
-    h1 { color: #2a6; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manickaselvi | Portfolio</title>
+<meta name="description" content="BSc AI student skilled in Python and Oracle DB, learning digital marketing.">
+<style>
+  :root {
+    --bg: #f6f8f4;
+    --ink: #1c2a24;
+    --muted: #55645c;
+    --accent: #1f6f5c;
+    --accent-soft: #dcebe4;
+    --line: #cfdad3;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 18px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 22px; }
+  header { padding: 56px 0 40px; }
+  h1 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 10px; }
+  .role { color: var(--accent); font-size: 1.1rem; }
+  nav { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: Arial, sans-serif; font-size: 0.95rem; }
+  a { color: var(--accent); }
+  nav a { text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); }
+  section { padding: 34px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 1.4rem; margin-bottom: 14px; }
+  p { color: var(--muted); }
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; font-family: Arial, sans-serif; font-size: 0.95rem; }
+  .skills li { background: var(--accent-soft); color: var(--accent); padding: 6px 14px; border-radius: 20px; }
+  .project { border-left: 4px solid var(--accent); padding-left: 16px; }
+  .project h3 { font-size: 1.1rem; margin-bottom: 4px; }
+  .project .tools { font-family: Arial, sans-serif; font-size: 0.85rem; color: var(--accent); margin: 6px 0; }
+  .btn {
+    display: inline-block; margin-top: 12px; padding: 10px 20px;
+    background: var(--accent); color: #fff; text-decoration: none;
+    font-family: Arial, sans-serif; border-radius: 6px;
+  }
+  .btn:hover, .btn:focus-visible { background: #17564a; }
+  a:focus-visible { outline: 3px solid #f0b429; outline-offset: 3px; }
+  footer { padding: 30px 0 50px; font-family: Arial, sans-serif; font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--line); }
+  @media (max-width: 480px) { h1 { font-size: 1.9rem; } body { font-size: 17px; } }
+</style>
 </head>
 <body>
-  <h1>Vanakkam! Naan Manickaselvi</h1>
-  <p>BSc AI student | Digital Marketing Learner</p>
-  <p><a href="https://github.com/mmanickaselvi4-lgtm">My GitHub Projects</a></p>
+<div class="wrap">
+
+  <header>
+    <h1>Vanakkam! Naan Manickaselvi</h1>
+    <p class="role">BSc AI student | Python &amp; Oracle DB | Digital Marketing learner</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About me</h2>
+    <p>I am a final-year BSc Artificial Intelligence student from Pandiyapuram, Tamil Nadu. I enjoy working with data, writing Python, and solving real problems. I am also learning digital marketing to combine data skills with content and SEO.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>Python</li>
+      <li>Oracle DB</li>
+      <li>Data Analysis</li>
+      <li>GitHub</li>
+      <li>Digital Marketing (learning)</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>HR Employee Attrition Analysis</h3>
+      <p>Analysis of employee data to find why employees leave a company and which factors affect attrition.</p>
+      <p class="tools">Python | Data Analysis</p>
+      <a class="btn" href="https://github.com/mmanickaselvi4-lgtm/HR-employee-attrition-analysis-">View on GitHub</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Open to internships, freelance work and entry-level roles.</p>
+    <p>Email: <a href="mailto:mmanickaselvi97@gmail.com">mmanickaselvi97@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/mmanickaselvi4-lgtm">mmanickaselvi4-lgtm</a></p>
+  </section>
+
+  <footer>&copy; 2026 Manickaselvi</footer>
+
+</div>
 </body>
 </html>
