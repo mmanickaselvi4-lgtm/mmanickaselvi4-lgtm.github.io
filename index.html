@@ -3,102 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Manickaselvi | Portfolio</title>
+<title>Manickaselvi | BSc AI Student</title>
 <meta name="description" content="BSc AI student skilled in Python and Oracle DB, learning digital marketing.">
 <style>
   :root {
-    --bg: #f6f8f4;
-    --ink: #1c2a24;
-    --muted: #55645c;
-    --accent: #1f6f5c;
-    --accent-soft: #dcebe4;
-    --line: #cfdad3;
+    --navy: #0f1b33;
+    --navy2: #1b2c4d;
+    --amber: #ffb703;
+    --bg: #ffffff;
+    --soft: #f4f6fb;
+    --ink: #14213d;
+    --muted: #55627a;
+    --line: #dfe5f0;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: var(--bg);
-    color: var(--ink);
-    line-height: 1.7;
-    font-size: 18px;
+  body { font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.65; font-size: 17px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 22px; }
+  a { color: inherit; }
+  a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+  /* top bar */
+  .topbar { position: sticky; top: 0; z-index: 10; background: rgba(15,27,51,.96); }
+  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  .brand { color: #fff; font-weight: 700; text-decoration: none; letter-spacing: .3px; }
+  .topbar nav { display: flex; gap: 22px; font-size: .92rem; }
+  .topbar nav a { color: #c9d3e8; text-decoration: none; padding-bottom: 3px; border-bottom: 2px solid transparent; }
+  .topbar nav a:hover { color: #fff; border-color: var(--amber); }
+
+  /* hero */
+  .hero { background: var(--navy); color: #fff; padding: 84px 0 96px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; right: -90px; top: -90px; width: 340px; height: 340px; border-radius: 50%; background: var(--navy2); }
+  .hero::before { content: ""; position: absolute; right: 70px; bottom: -70px; width: 150px; height: 150px; border-radius: 50%; border: 6px solid var(--amber); opacity: .85; }
+  .hero .wrap { position: relative; z-index: 1; display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+  .mono { width: 112px; height: 112px; border-radius: 50%; background: var(--amber); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 2.4rem; font-weight: 800; flex-shrink: 0; }
+  .hero h1 { font-size: 3.2rem; line-height: 1.08; letter-spacing: -1px; }
+  .hero .role { margin: 10px 0 14px; font-size: 1.1rem; color: var(--amber); font-weight: 600; }
+  .hero p.lead { color: #c9d3e8; max-width: 520px; }
+  .actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: .95rem; transition: transform .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.primary { background: var(--amber); color: var(--navy); }
+  .btn.ghost { border: 2px solid #fff; color: #fff; }
+  .hero .mono, .hero h1, .hero .role, .hero .lead, .hero .actions { animation: rise .7s ease both; }
+  .hero h1 { animation-delay: .1s; } .hero .role { animation-delay: .2s; } .hero .lead { animation-delay: .3s; } .hero .actions { animation-delay: .4s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .hero * { animation: none !important; } .btn { transition: none; } }
+
+  /* sections */
+  section { padding: 64px 0; }
+  section.alt { background: var(--soft); }
+  h2 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2::after { content: ""; display: block; width: 54px; height: 4px; background: var(--amber); border-radius: 2px; margin-top: 8px; }
+  .sub { color: var(--muted); margin: 14px 0 26px; max-width: 600px; }
+
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-top: 26px; }
+  .fact { background: var(--bg); border-radius: 10px; padding: 16px 18px; border: 1px solid var(--line); }
+  .fact b { display: block; color: var(--navy); }
+  .fact span { color: var(--muted); font-size: .93rem; }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .skill { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+  .skill h3 { font-size: 1.05rem; margin-bottom: 10px; }
+  .bar { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--navy); border-radius: 4px; }
+  .skill p { font-size: .9rem; color: var(--muted); margin-top: 8px; }
+
+  .project { background: var(--bg); border-radius: 12px; border: 1px solid var(--line); border-top: 6px solid var(--amber); padding: 26px; box-shadow: 0 6px 18px rgba(15,27,51,.06); }
+  .project h3 { font-size: 1.3rem; margin-bottom: 8px; }
+  .project p { color: var(--muted); }
+  .tags { margin: 14px 0 18px; display: flex; gap: 8px; flex-wrap: wrap; font-size: .85rem; }
+  .tags span { background: var(--navy); color: #fff; border-radius: 20px; padding: 3px 14px; }
+  .project .btn.primary { background: var(--navy); color: #fff; }
+
+  /* contact */
+  .contact { background: var(--navy); color: #fff; }
+  .contact h2::after { background: var(--amber); }
+  .contact .sub { color: #c9d3e8; }
+  .clist { list-style: none; }
+  .clist li { margin-bottom: 10px; }
+  .clist strong { display: inline-block; min-width: 80px; color: var(--amber); }
+  .clist a { color: #fff; }
+
+  footer { background: #0a1224; color: #8d9ab5; padding: 20px 0; font-size: .85rem; text-align: center; }
+
+  @media (max-width: 560px) {
+    .hero { padding: 56px 0 64px; }
+    .hero h1 { font-size: 2.3rem; }
+    .mono { width: 84px; height: 84px; font-size: 1.8rem; }
+    .topbar nav { gap: 14px; font-size: .82rem; }
   }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 0 22px; }
-  header { padding: 56px 0 40px; }
-  h1 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 10px; }
-  .role { color: var(--accent); font-size: 1.1rem; }
-  nav { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: Arial, sans-serif; font-size: 0.95rem; }
-  a { color: var(--accent); }
-  nav a { text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
-  nav a:hover, nav a:focus-visible { border-color: var(--accent); }
-  section { padding: 34px 0; border-top: 1px solid var(--line); }
-  h2 { font-size: 1.4rem; margin-bottom: 14px; }
-  p { color: var(--muted); }
-  .skills { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; font-family: Arial, sans-serif; font-size: 0.95rem; }
-  .skills li { background: var(--accent-soft); color: var(--accent); padding: 6px 14px; border-radius: 20px; }
-  .project { border-left: 4px solid var(--accent); padding-left: 16px; }
-  .project h3 { font-size: 1.1rem; margin-bottom: 4px; }
-  .project .tools { font-family: Arial, sans-serif; font-size: 0.85rem; color: var(--accent); margin: 6px 0; }
-  .btn {
-    display: inline-block; margin-top: 12px; padding: 10px 20px;
-    background: var(--accent); color: #fff; text-decoration: none;
-    font-family: Arial, sans-serif; border-radius: 6px;
-  }
-  .btn:hover, .btn:focus-visible { background: #17564a; }
-  a:focus-visible { outline: 3px solid #f0b429; outline-offset: 3px; }
-  footer { padding: 30px 0 50px; font-family: Arial, sans-serif; font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--line); }
-  @media (max-width: 480px) { h1 { font-size: 1.9rem; } body { font-size: 17px; } }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <h1>Vanakkam! Naan Manickaselvi</h1>
-    <p class="role">BSc AI student | Python &amp; Oracle DB | Digital Marketing learner</p>
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Manickaselvi</a>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
+  </div>
+</div>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="mono">MS</div>
+      <div>
+        <h1>Manickaselvi</h1>
+        <p class="role">BSc Artificial Intelligence | Python | Oracle DB</p>
+        <p class="lead">Final-year AI student who turns data into answers. Currently learning digital marketing to combine data skills with content and SEO.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">View my projects</a>
+          <a class="btn ghost" href="mailto:mmanickaselvi97@gmail.com">Email me</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <section id="about">
-    <h2>About me</h2>
-    <p>I am a final-year BSc Artificial Intelligence student from Pandiyapuram, Tamil Nadu. I enjoy working with data, writing Python, and solving real problems. I am also learning digital marketing to combine data skills with content and SEO.</p>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul class="skills">
-      <li>Python</li>
-      <li>Oracle DB</li>
-      <li>Data Analysis</li>
-      <li>GitHub</li>
-      <li>Digital Marketing (learning)</li>
-    </ul>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>HR Employee Attrition Analysis</h3>
-      <p>Analysis of employee data to find why employees leave a company and which factors affect attrition.</p>
-      <p class="tools">Python | Data Analysis</p>
-      <a class="btn" href="https://github.com/mmanickaselvi4-lgtm/HR-employee-attrition-analysis-">View on GitHub</a>
+    <div class="wrap">
+      <h2>About me</h2>
+      <p class="sub">I am from Pandiyapuram, Tamil Nadu, finishing my BSc in Artificial Intelligence. I write Python for data analysis, work with Oracle databases, and keep every project on GitHub.</p>
+      <div class="facts">
+        <div class="fact"><b>Studying</b><span>BSc Artificial Intelligence, final year</span></div>
+        <div class="fact"><b>Looking for</b><span>Internships and entry-level roles</span></div>
+        <div class="fact"><b>Learning</b><span>Digital marketing and SEO</span></div>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Open to internships, freelance work and entry-level roles.</p>
-    <p>Email: <a href="mailto:mmanickaselvi97@gmail.com">mmanickaselvi97@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/mmanickaselvi4-lgtm">mmanickaselvi4-lgtm</a></p>
+  <section id="skills" class="alt">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="sub">Tools I use to work with data.</p>
+      <div class="skills">
+        <div class="skill"><h3>Python</h3><div class="bar"><i style="width:75%"></i></div><p>Data analysis and scripting</p></div>
+        <div class="skill"><h3>Oracle DB</h3><div class="bar"><i style="width:70%"></i></div><p>SQL queries and database basics</p></div>
+        <div class="skill"><h3>Data Analysis</h3><div class="bar"><i style="width:65%"></i></div><p>Finding patterns in real datasets</p></div>
+        <div class="skill"><h3>Digital Marketing</h3><div class="bar"><i style="width:35%"></i></div><p>Learning SEO and content</p></div>
+      </div>
+    </div>
   </section>
 
-  <footer>&copy; 2026 Manickaselvi</footer>
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="sub">My work, with code on GitHub.</p>
+      <div class="project">
+        <h3>HR Employee Attrition Analysis</h3>
+        <p>Analysis of employee data to find why employees leave a company and which factors affect attrition.</p>
+        <div class="tags"><span>Python</span><span>Data Analysis</span></div>
+        <a class="btn primary" href="https://github.com/mmanickaselvi4-lgtm/HR-employee-attrition-analysis-">View on GitHub</a>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="sub">Open to internships, freelance work and entry-level roles. Write to me anytime.</p>
+      <ul class="clist">
+        <li><strong>Email</strong> <a href="mailto:mmanickaselvi97@gmail.com">mmanickaselvi97@gmail.com</a></li>
+        <li><strong>GitHub</strong> <a href="https://github.com/mmanickaselvi4-lgtm">mmanickaselvi4-lgtm</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>&copy; 2026 Manickaselvi</footer>
+
 </body>
 </html>
